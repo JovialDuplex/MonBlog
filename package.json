@@ -1,0 +1,23 @@
+{
+  "name": "applicationjovial",
+  "version": "1.0.0",
+  "description": "Ce blog a ete cree avec Express de NodeJs et il est utilise pour pouvoir partager des articles sur les meilleures saveurs du monde et aussi comprendre beaucoup de concept sur la cuisson et sur les repas",
+  "homepage": "https://github.com/JovialDuplex/MonBlog#readme",
+  "bugs": {
+    "url": "https://github.com/JovialDuplex/MonBlog/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JovialDuplex/MonBlog.git"
+  },
+  "license": "ISC",
+  "author": "Jovial Duplex",
+  "type": "commonjs",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
