@@ -11,7 +11,10 @@ config.configApp(app);
 config.configAppMiddleware(app);
 config.connectDB();
 
-app.use("/blog", myRoutes);
+app.use("/", myRoutes);
+app.get("/", (request, response)=>{
+    response.render("index", {user: request.user});
+});
 
 app.listen(port, ()=>{
     console.log("server is running on port ", port);

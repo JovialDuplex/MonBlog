@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form </title>
+</head>
+<body>
+    <h1> Login Form </h1>
+    <form method="post" action="/users/login">
+        <% if(typeof errors !== 'undefined') { %>
+            <ul>
+                <% errors.forEach(error=> { %>
+                    <li><%= error.msg %></li>
+                <% }); %>
+            </ul>
+        <% } else {%>
+            <h3> any errors has occurred </h3>
+        <% } %>
+        <div>
+            <label for="useremail">User email:</label>
+            <input type="text" id="useremail" name="user_email">
+        </div>
+        
+        <div>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="user_password">
+        </div>
+
+        <button type="submit">Login</button>
+    </form>
+</body>
+</html>

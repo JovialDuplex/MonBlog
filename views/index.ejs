@@ -6,6 +6,28 @@
     <title>Welcome</title>
 </head>
 <body>
-    Hello, welcome to my website !
+    <header>
+        <nav>
+            <span> Food Blog </span>
+            <ul>
+                <li><a href="/"> Home </a></li>
+                <li> <a href="/article"> Article </a></li>
+                <li> <a href="/chat"> Chat </a></li>
+            </ul>
+            <% if (!user) { %>
+            <a href="/users/login"> Login </a>
+            <% } else {%>
+                <a href="/users/logout"> logout </a>
+            <% } %>
+        </nav>
+    </header>
+    <main>
+        <a href="/getuser"> get me</a>
+        <% if (user) { %>
+            <h4> user logged in <%= JSON.stringify(user)%></h4>
+        <% } else { %>
+            No user logged in
+        <% } %>
+    </main>
 </body>
 </html>
