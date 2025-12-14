@@ -5,7 +5,6 @@ const userSchema = new mongoose.Schema({
     user_name: {
         type: mongooseType.String,
         required: true,
-
     },
     user_email: {
         type: mongooseType.String,
@@ -16,9 +15,14 @@ const userSchema = new mongoose.Schema({
     user_password: {
         type: mongooseType.String,
         required: true,
-        
-    }     
+    },
     
+    user_categories: [
+        {
+            type: mongooseType.ObjectId,
+            ref: "Category",
+        }
+    ]
 });
 
 module.exports = mongoose.model("User", userSchema);

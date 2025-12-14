@@ -6,9 +6,11 @@ const login = async (request, response)=>{
     const {user_email, user_password} = request.body;
     const user = await userModel.findOne({user_email: user_email});
     if (user) {
-        if (user.user_password === user_password){
+        if (await bcrypt.compare(user_password, user.user_password)){
+            console.log("compared password");
+
             const token = jwt.sign({id: user._id}, process.env.TOKEN_KEY, {expiresIn: "7d"});
-            
+
             request.user = user;
 
             response.cookie("token", token, {
@@ -32,10 +34,12 @@ const register = async (request, response)=>{
     if(user) {
         response.render("users/register", {msg: "User already exists"});
     } else {
+        const hashPassword = await bcrypt.hash(user_password, await bcrypt.genSalt(10));
+
         const myUser = await userModel.create({
             user_name, 
             user_email,
-            user_password,
+            user_password: hashPassword,
         });
 
         const token = jwt.sign({id: myUser._id}, process.env.TOKEN_KEY, {expiresIn: "7d"});

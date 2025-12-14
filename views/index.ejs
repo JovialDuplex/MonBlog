@@ -13,11 +13,16 @@
                 <li><a href="/"> Home </a></li>
                 <li> <a href="/article"> Article </a></li>
                 <li> <a href="/chat"> Chat </a></li>
+                <% if (user) {%>
+                    <li> <a href="/dashboard"> dashboard </a></li>
+                <% } %>
             </ul>
             <% if (!user) { %>
             <a href="/users/login"> Login </a>
             <% } else {%>
+                <div> <%= user.user_name %></div>
                 <a href="/users/logout"> logout </a>
+
             <% } %>
         </nav>
     </header>
